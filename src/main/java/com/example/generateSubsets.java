@@ -7,7 +7,6 @@ import java.util.ArrayList;
  *
  */
 public class  generateSubsets {
-// 1 2 3 4 5
 
     public void rec(String[] arr ,int i, String subset,ArrayList<String> subsets){
             if(i == arr.length)
@@ -27,21 +26,23 @@ public class  generateSubsets {
 
 
 
-    public ArrayList<ArrayList<String>> generateIteratively(String[] arr) {
+    public ArrayList<String> generateIteratively(String[] arr) {
 
-        ArrayList<ArrayList<String>> subsets = new ArrayList<ArrayList<String> >();
+        ArrayList<String> subsets = new ArrayList<String>();
 
         for(int i=0;i < (1 << arr.length) ;i++){
 
-            ArrayList<String> set = new ArrayList<String>();
+            String s = new String();
+            //ArrayList<String> set = new ArrayList<String>();
 
             for(int j=0;j<arr.length;j++){
                 if( (i & (1 << j )) != 0 ) {
-                    set.add(arr[j]);
+                    s += String.valueOf(arr[j] + " ");
+                    //set.add(arr[j]);
                 }
             }
 
-            subsets.add(set);
+            subsets.add(s);
         }
 
         return subsets;
